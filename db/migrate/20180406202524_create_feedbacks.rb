@@ -3,6 +3,7 @@ class CreateFeedbacks < ActiveRecord::Migration[5.1]
     create_table :feedbacks do |t|
       t.integer :teacher_id
       t.integer :student_id
+  
 
       t.timestamps
     end

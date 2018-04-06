@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :authored_conversations,
    class_name: 'Conversation', foreign_key: 'author_id'
-  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'receiver_id'
 
   before_save { self.email = email.downcase }
 

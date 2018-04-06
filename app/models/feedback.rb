@@ -1,5 +1,7 @@
 class Feedback < ApplicationRecord
   belongs_to :teacher, class_name: 'Enrollment'
   belongs_to :student, class_name: 'Enrollment'
-  validates :author, uniqueness: {scope: :receiver}
+  validates :teacher, uniqueness: {scope: :student}
 end
+
+#original class_name was 'Enrollment'
