@@ -4,7 +4,8 @@ class ConversationsController < ApplicationController
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.all
+    # @current_user ||= User.find_by(id: session[:user_id])
+    @conversations = Conversation.where(author_id: @current_user.id)
   end
 
   # GET /conversations/1
