@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   resources :posts
   resources :courses
   resources :users
+  resources :conversations
 
   root to: 'users#index'
+  get '/messages', to: 'conversations#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
