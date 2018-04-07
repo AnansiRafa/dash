@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-<%= @conversation.subject %>
+<h2><%= @conversation.subject %></h2>
+<h4><b>From: <%= User.find(@conversation.author_id).name %></b></h4>
+<h4><b>To: <%= User.find(@conversation.receiver_id).name %></b></h4>
 <table>
   <thead>
     <tr>
@@ -9,14 +11,13 @@
   <tbody>
     <% @conversation.messages.each do |m| %>
       <tr>
-        <td><b><%= m.body %></b></td>
-        <td><%= link_to 'Show', m %></td>
-        <td><%= link_to 'Delete Message', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><p><b><%=User.find(m.user_id).name%>:</b> <%= m.body %></p></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
 <%= link_to 'Edit', edit_conversation_path(@conversation) %>
 <%= link_to 'Back', conversations_path %>
