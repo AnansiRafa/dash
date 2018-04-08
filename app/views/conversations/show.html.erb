@@ -1,22 +1,16 @@
-<p id="notice"><%= notice %></p>
-<h2><%= @conversation.subject %></h2>
-<h4><b>Between <u><%= @conversation.author.name %></u> and  <u><%= @conversation.receiver.name %></u></b></h4>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @conversation.messages.each do |m| %>
-      <tr>
-        <td><p><b><%=User.find(m.user_id).name%>:</b> <%= m.body %></p><%= m.created_at %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1>Chatting with <%= @conversation.with(current_user).name %></h1>
 
-<br>
+<div id="conversation-main">
+  <div id="conversation-body">
+    <%= render @conversation.messages %>
+  </div>
 
-<%= link_to 'Edit', edit_conversation_path(@conversation) %>
-<%= link_to 'Back', conversations_path %>
+  <%= form_for @message do |f| %>
+    <%= hidden_field_tag 'conversation_id', @conversation.id %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.submit %>
+  <% end %>
+
+</div>

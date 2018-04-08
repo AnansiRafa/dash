@@ -1,16 +1,18 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
+  before_action :check_participating!, except: [:index]
 
   # GET /conversations
   # GET /conversations.json
   def index
-    # @current_user ||= User.find_by(id: session[:user_id])
-    @conversations = Conversation.where(author_id: @current_user.id)
+  @conversations = Conversation.participating(current_user).order('updated_at DESC')
+  @users = User.all
   end
 
   # GET /conversations/1
   # GET /conversations/1.json
   def show
+    @message = Message.new
   end
 
   # GET /conversations/new
@@ -67,6 +69,10 @@ class ConversationsController < ApplicationController
     def set_conversation
       @conversation = Conversation.find(params[:id])
     end
+
+    def check_participating!
+  redirect_to root_path unless @conversation && @conversation.participates?(current_user)
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params

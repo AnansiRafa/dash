@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   resources :posts
   resources :courses
   resources :users
-  resources :conversations
-  resources :messages
+  resources :messages, only: [:new, :create]
+  resources :conversations, only: [:index, :new, :show, :destroy]
 
   root to: 'users#index'
+  get '/users', to: 'users#index'
   get '/conversations', to: 'conversations#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

@@ -1,29 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+
 <h1>Your Conversations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @conversations.each do |conversation| %>
-      <tr>
-        <% if conversation.author == @current_user %>
-      <b>With <%= conversation.receiver.name %></b>
-        <% else %>
-        <b>With <%= conversation.author.name %></b>
-        <% end %>
-        <td><b><%= conversation.subject %></b></td>
-        <td><%= link_to 'Show', conversation %></td>
-        <td><%= link_to 'Delete Conversation', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="conversations">
+  <%= render @conversations %>
 
-<br>
+  <%= link_to 'New conversation', new_conversation_path %>
 
-<%= link_to 'New Conversation', new_conversation_path %>
+
+</div>
