@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h2><%= @conversation.subject %></h2>
-<h4><b>From: <%= User.find(@conversation.author_id).name %></b></h4>
-<h4><b>To: <%= User.find(@conversation.receiver_id).name %></b></h4>
+<h4><b>Between <u><%= @conversation.author.name %></u> and  <u><%= @conversation.receiver.name %></u></b></h4>
 <table>
   <thead>
     <tr>
@@ -11,7 +10,7 @@
   <tbody>
     <% @conversation.messages.each do |m| %>
       <tr>
-        <td><p><b><%=User.find(m.user_id).name%>:</b> <%= m.body %></p></td>
+        <td><p><b><%=User.find(m.user_id).name%>:</b> <%= m.body %></p><%= m.created_at %></td>
       </tr>
     <% end %>
   </tbody>
