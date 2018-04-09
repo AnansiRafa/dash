@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resources :users
   resources :conversations
   resources :messages
+  resources :comments
+
 
   root to: 'users#index'
+  get '/posts', to: 'posts#index'
   get '/conversations', to: 'conversations#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

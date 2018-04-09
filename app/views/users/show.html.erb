@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p>Comments: <%= render @post.comments %></p>
 
 <p>
   <strong>Name:</strong>
@@ -10,6 +10,6 @@
   <%= @user.email %>
 </p>
 
-
+<%= link_to "Add Comment", new_comment_path(post_id: @post.id) %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
