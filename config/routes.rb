@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
+  resources :feedbacks
   resources :courses
   resources :users
   resources :messages, only: [:new, :create]
