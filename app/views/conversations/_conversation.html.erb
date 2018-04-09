@@ -1,0 +1,10 @@
+<div>
+  <b>You and <%= conversation.with(current_user).name %></b>
+  <br>
+  <em><%= conversation.messages.last.body.truncate(50) %></em>
+  <br>
+  <%= link_to 'View conversation', conversation_path(conversation) %>
+
+  <td><%= link_to 'Delete conversation', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <hr>
+</div>

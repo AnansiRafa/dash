@@ -79,3 +79,4 @@ User.create!([{
     semester: "4",
     period: "1"
     }])
+      p "Created #{Course.count} courses"
