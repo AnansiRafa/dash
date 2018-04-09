@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'webpacker'
+gem 'react-rails'
+gem 'emoji'
 gem 'hirb'
 gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

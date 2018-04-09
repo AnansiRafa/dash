@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if logged_in?
+      send_home
+    end
   end
 
   def create
