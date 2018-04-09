@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :new, :show, :destroy]
 
   root to: 'users#index'
+  get '/feedbacks', to: 'feedbacks#index'
+  get '/courses', to: 'courses#index'
+  get '/posts', to: 'posts#index'
   get '/users', to: 'users#index'
   get '/conversations', to: 'conversations#index'
   get '/login', to: 'sessions#new'

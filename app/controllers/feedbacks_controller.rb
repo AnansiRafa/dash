@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks
   # GET /feedbacks.json
-  def index  
+  def index
   @feedbacks = get_feedbacks(current_user)
   end
 
@@ -17,6 +17,10 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/new
   def new
     @feedback = Feedback.new
+    respond_to do |format|
+    format.html  # new.html.erb
+    format.json  { render :json => @feedback }
+  end
   end
 
   # GET /feedbacks/1/edit
@@ -75,6 +79,6 @@ class FeedbacksController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def feedback_params
-    params.fetch(:feedback, {})
+    params.require(:feedback).permit(:body, :teacher_id, :student_id)
   end
 end
