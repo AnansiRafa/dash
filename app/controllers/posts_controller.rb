@@ -24,14 +24,18 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-
+    @course = Course.find(params[:course_id])
+    # @post = Post.new
+    # @post.course_id = params[:course_id]
+    @post = @course.posts.build(post_params)
+    # @post.save
+    # binding.pry
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
-        format.html { render :new }
+        format.html { redirect_to Course.find(params[:post][:course_id]) }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +73,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:course_id)
+      params.require(:post).permit(:course_id, :body)
     end
 end
