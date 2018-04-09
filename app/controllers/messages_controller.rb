@@ -70,6 +70,7 @@ class MessagesController < ApplicationController
     end
 
     def find_conversation!
+      if logged_in?
       if params[:receiver_id]
         @receiver = User.find_by(id: params[:receiver_id])
         redirect_to(root_path) and return unless @receiver
@@ -78,6 +79,10 @@ class MessagesController < ApplicationController
         @conversation = Conversation.find_by(id: params[:conversation_id])
         redirect_to(root_path) and return unless @conversation && @conversation.participates?(current_user)
       end
+    else
+      redirect_to('/login')
+      flash.now[:danger] = 'You must log in or sign up first.'
+    end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
