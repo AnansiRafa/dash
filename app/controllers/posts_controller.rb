@@ -4,7 +4,7 @@ before_action :requireSameUser, except: [:index, :show]
 before_action :requireSameUser, only: [:edit, :update, :destroy, :sold]
 
 def index
-  @posts = Post.paginate(page: params[:page], per_page: 20)
+  @posts = Post.all
 end
 
 def new
