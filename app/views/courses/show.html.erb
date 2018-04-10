@@ -26,7 +26,8 @@
 <h3>Students</h3>
 <ul>
 <% @course.enrollments.where(role_id:1).each do |e| %>
-<li><%= link_to "#{User.find(e.user_id).name}" %></li>
+<li><%= link_to "#{User.find(e.user_id).name}" %>| <%= link_to 'Post Feedback', new_feedback_path(teacher_id: @course.enrollments.where(role_id:2), student_id: e.id) %>
+</li>
 <% end %>
 </ul>
 
