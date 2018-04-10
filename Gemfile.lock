@@ -210,11 +210,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
-<<<<<<< HEAD
-  will_paginate
-=======
-  webpacker
->>>>>>> bb566236d8354958534d58bd5e079a5729f16acf
+
 
 BUNDLED WITH
    1.16.1

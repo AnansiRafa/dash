@@ -32,11 +32,33 @@ def update
   end
 end
 
+<<<<<<< HEAD
 def show
 end
 
 def edit
 end
+=======
+  # POST /posts
+  # POST /posts.json
+  def create
+    @course = Course.find(params[:course_id])
+    # @post = Post.new
+    # @post.course_id = params[:course_id]
+    @post = @course.posts.build(post_params)
+    # @post.save
+    # binding.pry
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { redirect_to Course.find(params[:post][:course_id]) }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+>>>>>>> 8a536953aef8c96fecc8aaf1df5b3bd7f0013330
 
 def sold
   @post.toggle(:sold)
@@ -59,10 +81,16 @@ private
     @post = Post.find(params[:id])
   end
 
+<<<<<<< HEAD
   def requireSameUser
     if currentUser != @post.user and !currentUser.admin
       flash[:danger] = "You can only edit or delete your own items"
       redirect_to root_path
+=======
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def post_params
+      params.require(:post).permit(:course_id, :body)
+>>>>>>> 8a536953aef8c96fecc8aaf1df5b3bd7f0013330
     end
   end
 end

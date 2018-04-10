@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180407234225) do
+=======
+ActiveRecord::Schema.define(version: 20180409225106) do
+>>>>>>> 8a536953aef8c96fecc8aaf1df5b3bd7f0013330
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +81,6 @@ ActiveRecord::Schema.define(version: 20180407234225) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "body"
-    t.integer "enrollment_id"
     t.index ["course_id"], name: "index_posts_on_course_id"
   end
 
