@@ -211,10 +211,3 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   webpacker
-<<<<<<< HEAD
-  will_paginate
-=======
->>>>>>> 5e150798bc2a214b0d0d1bbe83ac73c6d8b2001a
-
-BUNDLED WITH
-   1.16.1
