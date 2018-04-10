@@ -1,7 +1,7 @@
 <div>
   <b>You and <%= conversation.with(current_user).name %></b>
   <br>
-  <em><%= conversation.messages.last.body.truncate(50) %></em>
+  <em><%= conversation.messages.body %></em>
   <br>
   <%= link_to 'View conversation', conversation_path(conversation) %>
 
