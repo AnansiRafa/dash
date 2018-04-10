@@ -32,9 +32,14 @@
 </ul>
 
 <h3>Feed</h3>
+</br>
+
 <% @course.posts.map do |p| %>
-<%= p.body %>
+<%= image_tag p.image.url(:medium) %>
+
+<%= p.body%>
 <% end %>
+</br>
 
 <%= render "posts/new" %>
 
