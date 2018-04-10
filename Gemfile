@@ -4,10 +4,6 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-<<<<<<< HEAD
-
-=======
->>>>>>> 8a536953aef8c96fecc8aaf1df5b3bd7f0013330
 gem 'webpacker'
 gem 'react-rails'
 gem 'emoji'
