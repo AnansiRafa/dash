@@ -2,12 +2,10 @@
   "name": "dash",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@rails/webpacker": "3.4"
-=======
     "@rails/webpacker": "3.4",
-    "webpacker": "^0.0.3"
->>>>>>> 5e150798bc2a214b0d0d1bbe83ac73c6d8b2001a
+    "webpacker": "^0.0.3",
+   "@rails/webpacker": "3.4"
+
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

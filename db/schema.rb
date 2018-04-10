@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409225106) do
+ActiveRecord::Schema.define(version: 20180409232053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20180409225106) do
     t.datetime "updated_at", null: false
     t.text "body"
     t.index ["student_id"], name: "index_feedbacks_on_student_id"
-    t.index ["teacher_id", "student_id"], name: "index_feedbacks_on_teacher_id_and_student_id", unique: true
     t.index ["teacher_id"], name: "index_feedbacks_on_teacher_id"
   end
 

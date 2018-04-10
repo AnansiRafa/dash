@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  #the below method (no_sign_in) makes it impossible to view the signup page if you are already logged in
+  before_action :no_sign_in, only: [:new]
 
   # GET /users
   # GET /users.json
@@ -71,4 +73,10 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
+
+    def no_sign_in
+      if logged_in?
+        redirect_to users_path
+    end
+  end
 end

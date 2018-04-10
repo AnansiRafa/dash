@@ -19,3 +19,11 @@
   overflow-y: auto;
   margin-bottom: 2em;
 }
+
+#alert {
+  color: red;
+}
+
+ul{
+  list-style-type: none;
+}

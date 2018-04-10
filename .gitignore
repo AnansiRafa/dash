@@ -22,7 +22,4 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
-<<<<<<< HEAD
-=======
 dash/
->>>>>>> 5e150798bc2a214b0d0d1bbe83ac73c6d8b2001a

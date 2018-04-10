@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+<h1>Your Feedback</h1>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feedbacks.each do |feedback| %>
+      <ul>
+        <li><b><%= find_course(feedback) %> 101</b></li>
+        <li><B>From: <%= feedback.teacher.user.name %></li></b>
+        <li><%= feedback.body %></li>
+        <li><i>Posted: <%= feedback.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
+        <li><%= link_to 'Message this Teacher', new_message_path(receiver_id: feedback.teacher.user) %></li>
+      </ul>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feedback', new_feedback_path %>
