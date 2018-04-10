@@ -31,4 +31,13 @@
 <% end %>
 </ul>
 
+<h3>Feed</h3>
+<% @course.posts.map do |p| %>
+<%= p.body %>
+<% end %>
+
+<%= render "posts/new" %>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+
 <%= link_to 'Back', courses_path %>

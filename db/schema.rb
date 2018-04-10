@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20180409232053) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "body"
-    t.integer "enrollment_id"
     t.index ["course_id"], name: "index_posts_on_course_id"
   end
 
