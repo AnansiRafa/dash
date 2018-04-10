@@ -2,8 +2,8 @@ module CoursesHelper
 
   def get_courses(u)
       en = u.enrollments
-      en.each { |e|
-        return e.received_feedbacks
+      en.map { |e|
+       e.course
       }
   end
 end

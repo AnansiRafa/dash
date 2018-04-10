@@ -1,11 +1,12 @@
 class CoursesController < ApplicationController
   include CoursesHelper
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = get_courses(current_user)
   end
 
   # GET /courses/1

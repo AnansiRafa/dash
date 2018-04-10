@@ -1,9 +1,16 @@
 module FeedbacksHelper
 
-  def get_feedbacks(u)
+  def get_received_feedbacks(u)
     en = u.enrollments
     en.each { |e|
       return e.received_feedbacks
+    }
+  end
+
+  def get_sent_feedbacks(u)
+    en = u.enrollments
+    en.each { |e|
+      return e.sent_feedbacks
     }
   end
 

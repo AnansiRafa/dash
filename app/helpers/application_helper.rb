@@ -7,7 +7,7 @@ module ApplicationHelper
     redirect_to '/login'
   end
 
-  
+
   def emojify(content)
   h(content).to_str.gsub(/:([\w+-]+):/) do |match|
     if emoji = Emoji.find_by_alias($1)

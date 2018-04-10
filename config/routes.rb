@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:new, :create]
   resources :conversations, only: [:index, :new, :show, :destroy]
 
-  root to: 'users#index'
+  root to: 'users#new'
   get '/feedbacks', to: 'feedbacks#index'
   get '/courses', to: 'courses#index'
   get '/posts', to: 'posts#index'
