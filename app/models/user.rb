@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_many :enrollments
-
+  has_many :courses, through: :enrollments
   has_many :messages, dependent: :destroy
+  has_many :received_feedbacks, through: :enrollments
+  has_many :sent_feedbacks, through: :enrollments
 
   has_many :authored_conversations,
    class_name: 'Conversation', foreign_key: 'author_id'

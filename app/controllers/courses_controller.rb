@@ -1,12 +1,12 @@
 class CoursesController < ApplicationController
   include CoursesHelper
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  
+
 
   # GET /courses
   # GET /courses.json
   def index
-    @courses = get_courses(current_user)
+    @courses = current_user.courses
   end
 
   # GET /courses/1
@@ -27,9 +27,9 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
     respond_to do |format|
       if @course.save
+        give_course(@course)
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else

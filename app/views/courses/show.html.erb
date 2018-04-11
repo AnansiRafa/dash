@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <table>
   <thead>
     <tr>
@@ -12,21 +11,21 @@
     </tr>
   </thead>
 
-<tbody>
-<tr>
-  <td><%= @course.name %></td>
-  <td><%= @course.grade ? @course.grade : "N/A" %></td>
-  <td><%= @course.school_year %></td>
-  <td><%= @course.semester %></td>
-  <td><%= @course.period %></td>
-</tr>
-</tbody>
+  <tbody>
+    <tr>
+      <td><%= @course.name %></td>
+      <td><%= @course.grade ? @course.grade : "N/A" %></td>
+      <td><%= @course.school_year %></td>
+      <td><%= @course.semester %></td>
+      <td><%= @course.period %></td>
+    </tr>
+  </tbody>
 </table>
 
 <h3>Students</h3>
 <ul>
 <% @course.enrollments.where(role_id:1).each do |e| %>
-<li><%= link_to "#{User.find(e.user_id).name}" %>| <%= link_to 'Post Feedback', new_feedback_path(teacher_id: @course.enrollments.where(role_id:2), student_id: e.id) %>
+<li><b><%=e.user.name%></b> | <%= link_to 'Post Feedback', new_feedback_path(teacher_id: @course.enrollments.where(role_id:2), student_id: e.id) %> | <%= link_to 'send a message', new_message_path(receiver_id: e.user_id) %>
 </li>
 <% end %>
 </ul>
@@ -35,14 +34,21 @@
 </br>
 
 <% @course.posts.map do |p| %>
+<<<<<<< HEAD
 <%= image_tag p.image.url(:medium) %>
 
 <%= p.body%>
 <% end %>
 </br>
+=======
+<ul>
+  <li><%= p.body %></li>
+</ul>
+  <% end %>
+>>>>>>> c31f700ca5b33c16dd406c00654fe65e10baa8f7
 
-<%= render "posts/new" %>
+  <%= render "posts/new" %>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
+  <%= link_to 'Edit', edit_course_path(@course) %> |
 
-<%= link_to 'Back', courses_path %>
+  <%= link_to 'Back', courses_path %>
