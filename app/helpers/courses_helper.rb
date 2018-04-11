@@ -2,7 +2,7 @@ module CoursesHelper
   include SessionsHelper
   include ApplicationHelper
 
-  
+
 
   def give_course(course)
     if logged_in?
