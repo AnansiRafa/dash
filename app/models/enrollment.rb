@@ -10,4 +10,15 @@ class Enrollment < ApplicationRecord
    class_name: 'Feedback', foreign_key: 'teacher_id'
   has_many :received_feedbacks, class_name: 'Feedback', foreign_key: 'student_id'
 
+  # enum role: [:student, :teacher,]
+  #   after_initialize :set_default_role, :if => :new_record?
+  #
+  #   def set_default_role
+  #     self.role ||= :student
+  #   end
+
+
+
+
+
 end
