@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411192748) do
+ActiveRecord::Schema.define(version: 20180411195219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180411192748) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "key"
+    t.string "student_name"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -73,6 +74,15 @@ ActiveRecord::Schema.define(version: 20180411192748) do
     t.index ["course_id"], name: "index_posts_on_course_id"
   end
 
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -84,4 +94,5 @@ ActiveRecord::Schema.define(version: 20180411192748) do
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "posts", "courses"
+  add_foreign_key "students", "users"
 end
