@@ -7,7 +7,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks
   # GET /feedbacks.json
   def index
-  @feedbacks = get_received_feedbacks(current_user)
+  @feedbacks = current_user.received_feedbacks
   end
 
   # GET /feedbacks/1

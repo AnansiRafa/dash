@@ -2,12 +2,7 @@ module CoursesHelper
   include SessionsHelper
   include ApplicationHelper
 
-  def get_courses(u)
-    en = u.enrollments
-    en.map { |e|
-      e.course
-    }
-  end
+  
 
   def give_course(course)
     if logged_in?

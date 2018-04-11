@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = get_courses(current_user)
+    @courses = current_user.courses
   end
 
   # GET /courses/1
