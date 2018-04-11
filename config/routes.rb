@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :feedbacks
   resources :courses
-  
+
   resources :courses do
     resources :posts
   end

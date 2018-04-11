@@ -2,6 +2,7 @@ class FeedbacksController < ApplicationController
   include FeedbacksHelper
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
   before_action :confirm_signed_in
+  include CoursesHelper
 
   # GET /feedbacks
   # GET /feedbacks.json
@@ -16,7 +17,8 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks/new
   def new
-    @feedback = Feedback.new
+    @feedback = Feedback.new(student_id: params[:student_id], teacher_id: give_course_token)
+    puts @feedback.teacher_id
     respond_to do |format|
     format.html  # new.html.erb
     format.json  { render :json => @feedback }
