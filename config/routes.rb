@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :feedbacks
   resources :courses
-  
+
   resources :courses do
     resources :posts
   end
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :conversations, only: [:index, :new, :show, :destroy]
 
   root to: 'users#new'
+  get '/dashboard', to: 'dashboard#index'
   get '/feedbacks', to: 'feedbacks#index'
   get '/courses', to: 'courses#index'
   get '/posts', to: 'posts#index'

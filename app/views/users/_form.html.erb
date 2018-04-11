@@ -38,6 +38,11 @@
       <%= form.password_field :password_confirmation, id: :user_password %>
     </div>
 
+    <div class="field">
+      <%= form.label :teacher_or_student, "Are you a teacher or parent?" %>
+      <%= form.select :teacher_or_student, ['Teacher', 'Parent'] %>
+    </div>
+
     <div class="actions">
       <%= form.submit "Create an account" %>
     </div>

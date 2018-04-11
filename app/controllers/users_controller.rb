@@ -30,7 +30,12 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        session[:user_id] = @user.id
+        if params[:user][:teacher_or_student] == "Teacher"
+          format.html { redirect_to courses_path, notice: "You've signed up as a teacher! Please add some courses." }
+        else
+          format.html { redirect_to dashboard_path, notice: "You've signed up as a parent!" }
+        end
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

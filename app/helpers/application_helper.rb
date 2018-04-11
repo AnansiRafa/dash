@@ -7,6 +7,14 @@ module ApplicationHelper
     redirect_to '/login'
   end
 
+  def is_teacher?
+    if
+      @variable = true
+    else
+      @variable = false
+    end
+  end
+
 
   def emojify(content)
   h(content).to_str.gsub(/:([\w+-]+):/) do |match|
