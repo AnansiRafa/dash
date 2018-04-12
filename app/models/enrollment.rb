@@ -1,24 +1,12 @@
 class Enrollment < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, foreign_key: true
   belongs_to :course
 
   # validates :user_id, presence: true
   # validates :course_id, presence: true
   # validates :role_id, presence: true
-  belongs_to :student
+  belongs_to :student, optional: true
   has_many :sent_feedbacks,
-   class_name: 'Feedback', foreign_key: 'teacher_id'
-  has_many :received_feedbacks, class_name: 'Feedback', foreign_key: 'student_id'
-
-  # enum role: [:student, :teacher,]
-  #   after_initialize :set_default_role, :if => :new_record?
-  #
-  #   def set_default_role
-  #     self.role ||= :student
-  #   end
-
-
-
-
-
+  class_name: 'Feedback', foreign_key: 'teacher_id', dependent: :destroy
+  has_many :received_feedbacks, class_name: 'Feedback', foreign_key: 'student_id', dependent: :destroy
 end

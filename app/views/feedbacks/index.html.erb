@@ -10,11 +10,12 @@
   <tbody>
     <% @feedbacks.each do |feedback| %>
       <ul>
-        <li><b><%= find_course(feedback) %> 101</b></li>
-        <li><B>From: <%= feedback.teacher.user.name %></li></b>
+        <li><b><%= find_course(feedback) %> </b></li>
+        <li><B>By: <%= User.find(feedback.teacher.user_id).name %></li></b>
+        <li><B>For: <%= feedback.student.student.first_name + " " + feedback.student.student.last_name  %></li></b>
         <li><%= feedback.body %></li>
         <li><i>Posted: <%= feedback.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
-        <li><%= link_to 'Message this Teacher', new_message_path(receiver_id: feedback.teacher.user) %></li>
+      <li><%= link_to 'Message this Teacher', new_message_path(receiver_id: User.find(feedback.teacher.user_id)) %></li>
       </ul>
     <% end %>
   </tbody>
