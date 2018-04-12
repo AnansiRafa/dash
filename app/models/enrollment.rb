@@ -1,5 +1,5 @@
 class Enrollment < ApplicationRecord
-  belongs_to :user, foreign_key: true
+  belongs_to :user
   belongs_to :course
 
   # validates :user_id, presence: true
