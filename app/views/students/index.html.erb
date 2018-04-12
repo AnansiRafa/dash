@@ -1,0 +1,6 @@
+<h2>Your Students</h2>
+<% @e.map do |e| %>
+<ul>
+<li><%= e.student.first_name %></li>
+</ul>
+<% end %>
