@@ -6,12 +6,10 @@ module CoursesHelper
 
   def give_course(course)
     if logged_in?
-      e = Enrollment.new(course_id:course.id, role_id: 2, user_id: current_user.id)
-      e.save
+      e = Enrollment.create(course_id:course.id, role_id: 2, user_id: current_user.id)
     else
       make_sign_in
     end
-
   end
 
   def give_course_token
