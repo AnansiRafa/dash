@@ -1,6 +1,6 @@
 <h2>Your Students</h2>
 <% @e.map do |e| %>
 <ul>
-<li><%= e.student.first_name %></li>
+<li><%= link_to "#{e.student.first_name}" + " #{e.student.last_name}", dashboard_path(student_id: e.student.id) %></li>
 </ul>
 <% end %>
