@@ -32,21 +32,27 @@
 </ul>
 
 <h3>Feed</h3>
+</br>
+
 <% @course.posts.map do |p| %>
-<% if p.image_file_name %>
+<% if p.image.present? %>
 <ul>
-  <li><%= p.body %></li>
+  <li>  <%= image_tag p.image.url(:medium) + p.body%> </li>
 </ul>
-<% else %>
-<%=(image_tag p.image.url(:medium)) %>
-<ul>
-  <li><%= p.body %></li>
-</ul>
-  <% end %>
-  <% end %>
+    <% else %>
+    <ul>
+  <li>  <%= p.body%> </li>
+  </ul>
+    <% end %>
+    <% end %>
 
-  <%= render "posts/new" %>
 
-  <%= link_to 'Edit', edit_course_path(@course) %> |
 
-  <%= link_to 'Back', courses_path %>
+
+
+
+<%= render "posts/new" %>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+
+<%= link_to 'Back', courses_path %>

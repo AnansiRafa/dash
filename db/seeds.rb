@@ -79,4 +79,39 @@ User.create!([{
     semester: "4",
     period: "1"
     }])
-      p "Created #{Course.count} courses"
+    p "Created #{Course.count} courses"
+
+    Enrollment.destroy_all
+    Enrollment.create!([
+      {
+        user_id:"",
+        course_id: "",
+        role_id:"",
+        student_id: "",
+      }
+      {
+        user_id:"",
+        course_id: "",
+        role_id:"",
+        student_id: "",
+      }
+      {
+        user_id:"",
+        course_id: "",
+        role_id:"",
+        student_id: "",
+      }
+      {
+        user_id:"",
+        course_id: "",
+        role_id:"",
+        student_id: "",
+      }
+      {
+        user_id:"",
+        course_id: "",
+        role_id:"",
+        student_id: "",
+      }
+      ])
+      p "Created #{Enrollment.count} Enrollments"

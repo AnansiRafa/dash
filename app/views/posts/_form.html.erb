@@ -1,4 +1,4 @@
-<%= form_for([@course, post]) do |form| %>
+<%= form_for([@course, post], html: {multipart:true }) do |form| %>
 <% #binding.pry %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -16,6 +16,10 @@
       <%= form.file_field :image %>
     </div>
   		
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
   <div class="field">
     <%= form.label :body %>
     <%= form.text_field :body %>
