@@ -26,8 +26,9 @@ class PostsController < ApplicationController
   def create
     @course = Course.find(params[:course_id])
     # @post = Post.new
-    # @post.course_id = params[:course_id]
+    #@post.course_id = params[:course_id]
     @post = @course.posts.build(post_params)
+    @post.user_id = current_user.id
     # @post.save
     # binding.pry
     respond_to do |format|
@@ -73,6 +74,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:course_id, :body)
+      params.require(:post).permit(:course_id, :body, :user_id)
     end
 end

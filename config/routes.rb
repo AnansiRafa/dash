@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   root to: 'users#new'
   get '/dashboard', to: 'dashboard#index'
+  get '/students', to: 'students#index'
   get '/feedbacks', to: 'feedbacks#index'
   get '/courses', to: 'courses#index'
   get '/posts', to: 'posts#index'

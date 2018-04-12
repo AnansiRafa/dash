@@ -1,11 +1,18 @@
 <p id="notice"><%= notice %></p>
+<h3>Feed</h3>
 
-<% @courses.each do |c| %>
+
+<% @courses.uniq.each do |c| %>
 <% posts = c.posts %>
 <% posts.each do |p| %>
-<%= p.body %>
+<ul>
+<b><li><%= p.user.name %></li></b>
+<b><li><%= p.course.name %></li></b>
+<li><%= p.body %></li>
+</ul>
 <% end %>
 <% end %>
+<h3>Messages</h3>
 <% @conversations.each do |conversation| %>
 <div>
   <b>You and <%= conversation.with(current_user).name %></b>
@@ -18,4 +25,13 @@
   <hr>
 </div>
 <% end %>
-<%= @feedbacks %>
+<% @feedbacks.each do |feedback| %>
+  <ul>
+    <li><b><%= find_course(feedback) %> </b></li>
+    <li><B>By: <%= User.find(feedback.teacher.user_id).name %></li></b>
+    <li><B>For: <%= feedback.student.student.first_name + " " + feedback.student.student.last_name  %></li></b>
+    <li><%= feedback.body %></li>
+    <li><i>Posted: <%= feedback.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
+    <li><%= link_to 'Message this Teacher', new_message_path(receiver_id: User.find(feedback.teacher.user_id)) %></li>
+  </ul>
+<% end %>

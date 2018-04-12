@@ -24,17 +24,25 @@
 
 <h3>Students</h3>
 <ul>
-<% @course.enrollments.where(role_id:1).each do |e| %>
-<li><b><%=e.user.name%></b> | <%= link_to 'Post Feedback', new_feedback_path(teacher_id: @course.enrollments.where(role_id:2), student_id: e.id) %> | <%= link_to 'send a message', new_message_path(receiver_id: e.user_id) %>
+<% students = @course.enrollments.where(role_id: 1) %>
+<% students.each do |e| %>
+<li><b><%=e.student.first_name + " " + e.student.last_name%></b> | <%= link_to 'Post Feedback', new_feedback_path(teacher_id: @course.enrollments.where(role_id:2), student_id: e.id) %> | <%= link_to 'Message Guardian', new_message_path(receiver_id: e.user_id) %>
 </li>
 <% end %>
 </ul>
 
 <h3>Feed</h3>
 <% @course.posts.map do |p| %>
+<% if p.image_file_name %>
 <ul>
   <li><%= p.body %></li>
 </ul>
+<% else %>
+<%=(image_tag p.image.url(:medium)) %>
+<ul>
+  <li><%= p.body %></li>
+</ul>
+  <% end %>
   <% end %>
 
   <%= render "posts/new" %>
