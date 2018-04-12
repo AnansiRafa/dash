@@ -34,10 +34,20 @@
 </br>
 
 <% @course.posts.map do |p| %>
-  <%=(image_tag p.image.url(:medium)) %>
-<%= p.body%>
-<% end %>
-</br>
+<% if p.image.present? %>
+<ul>
+  <li>  <%= image_tag p.image.url(:medium) + p.body%> </li>
+</ul>
+    <% else %>
+    <ul>
+  <li>  <%= p.body%> </li>
+  </ul>
+    <% end %>
+    <% end %>
+
+
+
+
 
 
 <%= render "posts/new" %>
