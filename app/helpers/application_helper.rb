@@ -7,15 +7,7 @@ module ApplicationHelper
     redirect_to '/login'
   end
 
-  def set_role
-    if params[:session]
-    if params[:session][:teacher_or_student] == "Teacher"
-      a = 1
-    else
-      a = 2
-    end
-  end
-end
+  
 
 
 
