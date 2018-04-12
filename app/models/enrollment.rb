@@ -1,5 +1,5 @@
 class Enrollment < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, foreign_key: true
   belongs_to :course
 
   # validates :user_id, presence: true
@@ -9,5 +9,4 @@ class Enrollment < ApplicationRecord
   has_many :sent_feedbacks,
    class_name: 'Feedback', foreign_key: 'teacher_id', dependent: :destroy
   has_many :received_feedbacks, class_name: 'Feedback', foreign_key: 'student_id', dependent: :destroy
-
 end
