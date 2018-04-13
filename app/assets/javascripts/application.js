@@ -15,5 +15,13 @@
 //= require react
 //= require react_ujs
 //= require components
-//= require_tree .
 //= require conversations
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//= require materialize
+//= require_tree .
+
+$(document).ready(function() {
+  $('.dropdown-trigger').dropdown();
+});

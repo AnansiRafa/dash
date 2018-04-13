@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Dash</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <h1>DASH</h1>
-    <%= render 'shared/top_nav' %>
-    <%= yield %>
-  </body>
-</html>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Dash</title>
+      <%= csrf_meta_tags %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+      <%= render 'shared/top_nav' %>
+      <%= yield %>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    </body>
+  </html>
