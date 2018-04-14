@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
   def index
-    @e = current_user.enrollments
+    @students = current_user.students
   end
 end
