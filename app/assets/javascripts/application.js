@@ -21,7 +21,8 @@
 //= require turbolinks
 //= require materialize
 //= require_tree .
-
-$(document).ready(function() {
-  $('.dropdown-trigger').dropdown();
+$( document ).on('turbolinks:load', function() {
+  // $('.dropdown-trigger').dropdown();
+  $(".button-collapse").sideNav();
+    $('select').attr("class", "browser-default")
 });

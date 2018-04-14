@@ -20,7 +20,7 @@ include ApplicationHelper
       else
         log_in user
         respond_to do |format|
-        format.html { redirect_to dashboard_path, notice: "You've signed in as a parent" }
+        format.html { redirect_to students_path, notice: "You've signed in as a parent" }
       end
       end
       # redirect_to root_url
