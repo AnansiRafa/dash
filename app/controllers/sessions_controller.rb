@@ -15,12 +15,12 @@ include ApplicationHelper
       if params[:session][:teacher_or_student] == "Teacher"
         log_in user
         respond_to do |format|
-        format.html { redirect_to courses_path, notice: "You've signed in as a teacher." }
+        format.html { redirect_to courses_path}
       end
       else
         log_in user
         respond_to do |format|
-        format.html { redirect_to students_path, notice: "You've signed in as a parent" }
+        format.html { redirect_to students_path}
       end
       end
       # redirect_to root_url
