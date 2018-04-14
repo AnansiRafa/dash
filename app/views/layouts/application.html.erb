@@ -4,6 +4,7 @@
       <title>Dash</title>
       <%= csrf_meta_tags %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Permanent+Marker|Schoolbell" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     </head>
@@ -12,6 +13,7 @@
       <main>
       <%= yield %>
     </main>
+    <%= render 'shared/footer' %>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     </body>
   </html>

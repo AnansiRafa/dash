@@ -18,10 +18,62 @@ ul{
 
 
 main{
-  border: 5px solid crimson;
+  // border: 5px solid crimson;
   text-align: center;
+  flex: 1 0 auto;
+  background-color: #3B653D;
 }
 
 nav li {
   display: inline-block;
+}
+
+nav a {
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+nav a:hover {
+  color: crimson;
+}
+
+ .brand-logo > h4{
+  margin-left: 20px;
+}
+
+.brand-logo{
+  color: white;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.brand-logo:hover{
+  color: crimson;
+}
+
+.col.s4{
+height: 800px;
+border-left: 1.5px solid white;
+border-right: 1.5px solid white;
+overflow: auto;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.grey-text.text-lighten-4{
+  margin-left: 15px;
+}
+
+.footer-copyright{
+  margin-left: 17 px;
+}
+
+footer{
+  font-family: 'Do Hyeon', sans-serif;
+}
+
+.dashboard{
+  color: white;
 }

@@ -34,11 +34,11 @@
 <h3>Feed</h3>
 <% @course.posts.map do |p| %>
 <% if p.image_file_name %>
-<ul>
-  <li><%= p.body %></li>
-</ul>
+  <%=(image_tag p.image.url(:medium)) %>
+  <ul>
+    <li><%= p.body %></li>
+  </ul>
 <% else %>
-<%=(image_tag p.image.url(:medium)) %>
 <ul>
   <li><%= p.body %></li>
 </ul>
