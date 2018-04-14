@@ -34,7 +34,7 @@ class UsersController < ApplicationController
         if params[:user][:teacher_or_student] == "Teacher"
           format.html { redirect_to courses_path, notice: "You've signed up as a teacher! Please add some courses." }
         else
-          format.html { redirect_to dashboard_path, notice: "You've signed up as a parent!" }
+          format.html { redirect_to students_path, notice: "You've signed up as a parent!" }
         end
         format.json { render :show, status: :created, location: @user }
       else

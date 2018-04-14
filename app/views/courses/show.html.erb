@@ -35,7 +35,12 @@
 </br>
 
 <% @course.posts.map do |p| %>
-<% if p.image.present? %>
+<% if p.image_file_name %>
+  <%=(image_tag p.image.url(:medium)) %>
+  <ul>
+    <li><%= p.body %></li>
+  </ul>
+<% else %>
 <ul>
   <li>  <%= image_tag p.image.url(:medium) + p.body%> </li>
 </ul>
