@@ -15,27 +15,32 @@
         <li><B>Teacher: <%= User.find(feedback.teacher.user_id).name %></li></b>
           <li><B>Feedback for: <%= feedback.student.student.first_name + " " + feedback.student.student.last_name  %></li></b>
             <li><%= feedback.body %></li>
-            <li><i>Posted: <%= feedback.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
+            <li><i>Posted on <%= feedback.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
             <li><%= link_to 'Message this Teacher', new_message_path(receiver_id: User.find(feedback.teacher.user_id)) %></li>
             <hr>
           </ul>
           <% end %>
         </div>
-
-        <div class="col s4">
-          <h4 class="dash-head">Feed</h4>
+        <div class="col s4" id="class-feed">
+          <h4 class="dash-head">Class Feed</h4>
           <% @courses.uniq.each do |c| %>
           <% posts = c.posts %>
           <% posts.each do |p| %>
           <ul>
-            <b><li><%= p.user.name %></li></b>
-            <b><li><%= p.course.name %></li></b>
+            <b><li><h5><%= p.user.name %></h5></li></b>
+            <b><li><h5><u><%= p.course.name %></u></h5></li></b>
+          <% if p.image_file_name %>
+            <%=(image_tag p.image.url(:medium)) %>
+              <li><%= p.body %></li>
+          <% else %>
             <li><%= p.body %></li>
-            <%= link_to 'Message this Person', new_message_path(receiver_id: User.find(p.user_id)) %></li>
+            <% end %>
+            <li><i>Posted on <%= p.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
+            <li><%= link_to 'Message this Person', new_message_path(receiver_id: User.find(p.user_id)) %></li>
+            </ul>
             <hr>
-          </ul>
-          <% end %>
-          <% end %>
+            <% end %>
+            <% end %>
         </div>
         <div class="col s4">
           <h4 class="dash-head">Messages</h4>
