@@ -6,11 +6,11 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Grade</th>
-      <th>School year</th>
-      <th>Semester</th>
-      <th>Period</th>
+      <th><Name></th>
+      <h5><th>Grade</th></h5>
+      <h5><th>School year</th></h5>
+      <h5><th>Semester</th></h5>
+      <h5><th>Period</th></h5>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,14 +23,8 @@
         <td><%= course.school_year %></td>
         <td><%= course.semester %></td>
         <td><%= course.period %></td>
-
         <td><%= link_to 'Show Students', course %></td>
-
-        <td><%= course.id %></td>
-        <td><%= link_to 'Show', course %></td>
-
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove Course', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
