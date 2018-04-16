@@ -32,6 +32,33 @@ main{
     height: auto;
   }
 
+  .dash-head{
+  font-size: 2em;
+  }
+
+}
+
+.dash_top{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.calendar{
+grid-column: 3/4;
+grid-row: 1/2;
+align-self: center;
+}
+
+.student_name{
+  grid-column: 2/3;
+  align-self: start;
+  font-size: 3em;
+}
+
+.attendance{
+  grid-column: 1/2;
+  grid-row: 1/2;
+  align-self: center;
 }
 
 
