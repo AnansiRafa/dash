@@ -33,6 +33,8 @@
 <hr>
 
 <h3>Feed</h3>
+</br>
+
 <% @course.posts.map do |p| %>
 <% if p.image_file_name %>
   <%=(image_tag p.image.url(:medium)) %>
@@ -41,14 +43,14 @@
   </ul>
 <% else %>
 <ul>
-  <li><%= p.body %></li>
+  <li>  <%= image_tag p.image.url(:medium) + p.body%> </li>
 </ul>
   <% end %>
   <% end %>
   <hr>
 
-  <%= render "posts/new" %>
+<%= render "posts/new" %>
 
-  <%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Edit', edit_course_path(@course) %> |
 
-  <%= link_to 'Back', courses_path %>
+<%= link_to 'Back', courses_path %>

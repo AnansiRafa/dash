@@ -7,6 +7,6 @@ class Enrollment < ApplicationRecord
   # validates :role_id, presence: true
   belongs_to :student, optional: true
   has_many :sent_feedbacks,
-   class_name: 'Feedback', foreign_key: 'teacher_id', dependent: :destroy
+  class_name: 'Feedback', foreign_key: 'teacher_id', dependent: :destroy
   has_many :received_feedbacks, class_name: 'Feedback', foreign_key: 'student_id', dependent: :destroy
 end
