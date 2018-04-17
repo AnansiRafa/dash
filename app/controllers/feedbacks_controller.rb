@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
 
   # GET /feedbacks/new
   def new
-    @feedback = Feedback.new(student_id: params[:student_id], teacher_id: give_course_token)
+    @feedback = Feedback.new(student_id: params[:student_id], teacher_id: params[:teacher_id])
     puts @feedback.teacher_id
     respond_to do |format|
     format.html  # new.html.erb
@@ -36,7 +36,7 @@ class FeedbacksController < ApplicationController
 
     respond_to do |format|
       if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
+        format.html { redirect_to courses_path, notice: 'Feedback was successfully created.' }
         format.json { render :show, status: :created, location: @feedback }
       else
         format.html { render :new }

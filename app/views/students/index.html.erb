@@ -1,5 +1,5 @@
 <h4>Your Students</h4>
-<% @students.map do |e| %>
+<% @students.uniq.map do |e| %>
 <ul>
 <li><%= link_to "#{e.first_name}" + " #{e.last_name}", dashboard_path(student_id: e.id) %></li>
 </ul>

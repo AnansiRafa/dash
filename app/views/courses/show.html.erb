@@ -26,10 +26,11 @@
 <ul>
 <% students = @course.enrollments.where(role_id: 1) %>
 <% students.each do |e| %>
-<li><b><%=e.student.first_name + " " + e.student.last_name%></b> | <%= link_to 'Post Feedback', new_feedback_path(teacher_id: @course.enrollments.where(role_id:2), student_id: e.id) %> | <%= link_to 'Message Guardian', new_message_path(receiver_id: e.user_id) %>
+<li><b><%=e.student.first_name + " " + e.student.last_name%></b> | <%= link_to 'Post Feedback', new_feedback_path(teacher_id: @course.enrollments.where(user_id: current_user.id).first, student_id: e.id) %> | <%= link_to 'Message Guardian', new_message_path(receiver_id: e.user_id) %>
 </li>
 <% end %>
 </ul>
+<hr>
 
 <h3>Feed</h3>
 <% @course.posts.map do |p| %>
@@ -44,6 +45,7 @@
 </ul>
   <% end %>
   <% end %>
+  <hr>
 
   <%= render "posts/new" %>
 
