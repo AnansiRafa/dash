@@ -14,12 +14,13 @@ module CoursesHelper
 
   def give_course_token
     #associates the current user with the selected course
-    e = Enrollment.find(params[:student_id])
-    c = Course.find(e.course_id)
-    ce = c.enrollments
-    ue = ce.where(user_id: current_user.id)
-    ue = ue.first.id
-    return ue
+    e = Enrollment.where(student_id: params[:student_id])
+    # g = f
+    # c = e.first.course
+    # ce = c.enrollments
+    # ue = ce.where(user_id: current_user.id)
+    # ue = ue.first.id
+    # return ue
   end
 
 end

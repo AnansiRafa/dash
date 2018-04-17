@@ -1,39 +1,53 @@
 <p id="notice"><%= notice %></p>
 <div class="dashboard">
-<h4><%= @student.first_name + " " + @student.last_name %></h4>
+  <div class="dash_top">
+  <h3 class="student_name"><%= @student.first_name + " " + @student.last_name %></h3>
+  <div class="attendance"><%if @student.attendance == 1 %>
+  <h5>Attendance: <i class='material-icons' id="present">mood</i></h5>
+  <% else %>
+  <h5>Attendance: <i class='material-icons' id="absent">sentiment_neutral</i></h5>
+  <% end %></div>
+  <a href="http://www.browardschools.com/SiteMedia/Docs/Calendars/2017-18-School-Calendar-letter.pdf" target="_blank" class="calendar">School Calendar</a>
+</div>
+  <hr>
   <div class="row">
     <div class="col s4">
-      <h4 class="dash-head">Teacher Feedback</h4>
+      <h3 class="dash-head">Teacher Feedback</h3>
       <% @feedbacks.each do |feedback| %>
       <ul>
         <li><h5><b><u><%= find_course(feedback) %> </u></b></h5></li>
         <li><B>Teacher: <%= User.find(feedback.teacher.user_id).name %></li></b>
           <li><B>Feedback for: <%= feedback.student.student.first_name + " " + feedback.student.student.last_name  %></li></b>
             <li><%= feedback.body %></li>
-            <li><i>Posted: <%= feedback.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
+            <li><i>Posted on <%= feedback.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
             <li><%= link_to 'Message this Teacher', new_message_path(receiver_id: User.find(feedback.teacher.user_id)) %></li>
             <hr>
           </ul>
           <% end %>
         </div>
-
-        <div class="col s4">
-          <h4 class="dash-head">Feed</h4>
+        <div class="col s4" id="class-feed">
+          <h3 class="dash-head">Class Feed</h3>
           <% @courses.uniq.each do |c| %>
           <% posts = c.posts %>
           <% posts.each do |p| %>
           <ul>
-            <b><li><%= p.user.name %></li></b>
-            <b><li><%= p.course.name %></li></b>
+            <b><li><h5><%= p.user.name %></h5></li></b>
+            <b><li><h5><u><%= p.course.name %></u></h5></li></b>
+            <% if p.image_file_name %>
+            <%=(image_tag p.image.url(:medium)) %>
             <li><%= p.body %></li>
-            <%= link_to 'Message this Person', new_message_path(receiver_id: User.find(p.user_id)) %></li>
-            <hr>
+            <% else %>
+            <li><%= p.body %></li>
+            <% end %>
+            <li><i><%= p.created_at.strftime('%a %b %d, %Y at %r') %></i></li>
+            <li><%= link_to 'Message this Person', new_message_path(receiver_id: User.find(p.user_id)) %></li>
           </ul>
+          <hr>
           <% end %>
           <% end %>
         </div>
         <div class="col s4">
-          <h4 class="dash-head">Messages</h4>
+          <h3 class="dash-head">Messages</h3>
           <% @conversations.each do |conversation| %>
           <div>
             <b>You and <%= conversation.with(current_user).name %></b>

@@ -1,6 +1,6 @@
-jQuery(document).on 'turbolinks:load', ->
+$(document).on('turbolinks:load', function(){
   messages = $('#conversation-body')
-  if messages.length > 0
-    messages_to_bottom = -> messages.scrollTop(messages.prop("scrollHeight"))
-
-    messages_to_bottom()
+  if(messages.length > 0){
+    messages.scrollTop(messages.prop("scrollHeight"));
+  }
+});

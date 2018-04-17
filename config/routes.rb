@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :courses
 
   resources :courses do
+  resources :feedbacks
+end
+
+  resources :courses do
     resources :posts
   end
   resources :users

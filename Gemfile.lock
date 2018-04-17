@@ -41,10 +41,6 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
@@ -60,7 +56,6 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     climate_control (0.2.0)
     concurrent-ruby (1.0.5)
-    connection_pool (2.2.1)
     crass (1.0.4)
     emoji (1.0.7)
       json
@@ -113,8 +108,6 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
-    rack-proxy (0.6.4)
-      rack
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
@@ -144,12 +137,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    react-rails (2.4.4)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -195,10 +182,6 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (3.4.3)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -222,7 +205,6 @@ DEPENDENCIES
   pg
   puma
   rails
-  react-rails
   sass-rails
   selenium-webdriver
   spring
@@ -231,7 +213,6 @@ DEPENDENCIES
   tzinfo-data
   uglifier
   web-console
-  webpacker
 
 BUNDLED WITH
    1.16.1
