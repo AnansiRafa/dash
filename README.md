@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DASH is a personalized student dashboard that allows parents and teachers to more effectively communicate.
 
-Things you may want to cover:
+It can be visited at https://dashk12.herokuapp.com.
 
-* Ruby version
+Current features include:
 
-* System dependencies
+* Private Messaging
 
-* Configuration
+* Individual qualitative student feedback as posted by teachers
 
-* Database creation
+* Public feeds for every class a student is enrolled in
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+View demo here: https://drive.google.com/open?id=1Z-M4vaFdu8sJ4Pc4l-Vx4cVRSKNdzsCE
