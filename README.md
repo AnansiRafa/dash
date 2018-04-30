@@ -2,7 +2,7 @@
 
 DASH is a personalized student dashboard that allows parents and teachers to more effectively communicate.
 
-It can be visited at https://dashk12.herokuapp.com.
+DASH is currently undergoing maintenance, but can be visited at https://dashk12.herokuapp.com.
 
 Current features include:
 
